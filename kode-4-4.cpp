@@ -4,6 +4,7 @@ using namespace std;
 struct node
 {
 	int info;
+	node *prev;
 	node *next;
 } *start, *newptr, *save, *ptr, *rear;
 
@@ -70,7 +71,7 @@ node *create_new_node(int n)
 {
 	ptr = new node;
 	ptr->info = n;
-	ptr->next = NULL;
+	ptr->prev = ptr->next = NULL;
 	return ptr;
 }
 
@@ -82,8 +83,11 @@ void insert_node(node *np)
 	}
 	else
 	{
-		rear -> next = np;
+		save = rear;
+		save -> next = np;
 		rear = np;
+		np -> prev = save;
+		
 	}
 }
 

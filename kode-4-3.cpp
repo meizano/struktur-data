@@ -96,8 +96,12 @@ void display(node *np)
 {
 	while(np != NULL)
 	{
-		cout<<np->info<<" -> ";
+		int x = np->info;
+		cout<<x<<" -> ";
 		np = np->next;
+		if(x == 7) {
+			cout << "Ditemukan nilai tujuh.";
+		}
 	}
 	cout<<"!!\n";
 }
